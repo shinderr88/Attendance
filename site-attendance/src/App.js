@@ -1,22 +1,22 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {Field, Form, Formik} from 'formik'
-import {login, logout} from './reduxSetup/user'
+
 function App() {
   const dispatch = useDispatch()
-  const { user } = useSelector(state => state.user)
-  if (user) {
-    return (
-      <div>
-        Hi, {user.username}!
-        <button onClick={() => dispatch(logout())}>Logout</button>
-      </div>
-    )
-  }
+  // const { user } = useSelector(state => state.user)
+  // if (user) {
+  //   return (
+  //     <div>
+  //       Hi, {user.username}!
+  //       <button onClick={() => console.log("logout pressed")}>Logout</button>
+  //     </div>
+  //   )
+  // }
   return (
     <div>
       <Formik
         initialValues={{ username: '', password: '' }}
-        onSubmit={(values) => { dispatch(login(values)) }}
+        onSubmit={(values) => { console.log("login pressed") }}
       >
         {({ isSubmitting }) => (
           <Form>
